@@ -12,28 +12,34 @@ import Common.FileUtil;
 
 public class user {
 
+
 	protected String userID;
-	
+
 	protected int tweetCnt;
-	
+
+
 	ArrayList<tweet> tweets = new ArrayList<tweet>();
-	
-	
-	public user(String Dir, String id, HashMap<String, Integer> wordMap, 
+
+
+
+	public user(String Dir, String id, HashMap<String, Integer> wordMap,
 			ArrayList<String> uniWordMap) {
-		
+
+
 		this.userID = id;
+		int hello =10;
+		
 		ArrayList<String> datalines = new ArrayList<String>();
-		FileUtil.readLines(Dir, datalines);		
-		
+		FileUtil.readLines(Dir, datalines);
+
 		this.tweetCnt = datalines.size();
-		
+
 		for(int lineNo = 0; lineNo < datalines.size(); lineNo++) {
 			String line = datalines.get(lineNo);
 			tweet tw = new tweet(line, wordMap, uniWordMap);
-			tweets.add(tw);						
+			tweets.add(tw);
 		}
-		
+
 		datalines.clear();
 	}
 }
